@@ -1,0 +1,63 @@
+<h4 class="text-center">Person Save</h4>
+<br><br>
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form [formGroup]="formPerson" (ngSubmit)="onSubmit(formPerson.value)">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" formControlName="name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Surname</label>
+                            <input type="text" formControlName="surname" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <input type="text" formControlName="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" formControlName="age" class="form-control" />
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br><br>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>NAME</td>
+            <td>LASTNAME</td>
+            <td>AGE</td>
+            <td>EMAİL</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+       <tr *ngFor="let item of data">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.surname}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.age}}</td>
+            <td><button (click)="get(item.id)" class="btn btn-warning">UPDATE</button></td>
+            <td><button (click)="delete(item.id)" class="btn btn-danger">DELETE</button></td>
+       </tr>
+    </tbody>
+</table>
+</div>
